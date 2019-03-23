@@ -1,10 +1,12 @@
 main: ${groupId}.${artifactId}.${name}
-name: ${name}
-version: ${version}
-description: ${description}
+
+name: ${project.name}
+description: ${project.description}
+version: ${project.version}
 author: ${author}
-#commands:
-#  ${artifactId}:
-#    description: The main command for ${name}
-#    aliases: [alias1,alias2]
-#    usage: "\u00A7cRayzr fracked something up."
+
+commands:
+  ${artifactId}:
+    description: The main command for ${name}.
+    # aliases: []
+    usage: "\u00A7cRayzr hecc'd something up."

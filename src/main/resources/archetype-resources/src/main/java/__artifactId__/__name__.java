@@ -1,5 +1,6 @@
 package ${groupId}.${artifactId};
 
+import ${groupId}.${artifactId}.command.Command${name};
 import ${groupId}.${artifactId}.utils.MessageHandler;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -16,6 +17,9 @@ public class ${name} extends JavaPlugin {
     private static ${name} instance;
     private MessageHandler messages = new MessageHandler();
 
+    /**
+     * @return The current instance of ${name}.
+     */
     public static ${name} getInstance() {
         return instance;
     }
@@ -24,7 +28,11 @@ public class ${name} extends JavaPlugin {
     public void onEnable() {
         instance = this;
 
+        // Load configs
         reload();
+
+        // Set up commands
+        getCommand("${artifactId}").setExecutor(new Command${name}(this));
     }
 
     @Override
@@ -56,7 +64,7 @@ public class ${name} extends JavaPlugin {
     }
 
     /**
-     * Attempts to save a {@link YamlConfiguration} to the disk, and any {@link IOException}s are printed to the console
+     * Attempts to save a {@link YamlConfiguration} to the disk, with any {@link IOException}s being printed to the console.
      *
      * @param config The config to save
      * @param path   The path to save the config file to (relative to the plugin data folder)
@@ -78,7 +86,7 @@ public class ${name} extends JavaPlugin {
     }
 
     /**
-     * Returns a message from the language file
+     * Translates a message from the language file.
      *
      * @param key     The key of the message to translate
      * @param objects The formatting objects to use
@@ -89,24 +97,9 @@ public class ${name} extends JavaPlugin {
     }
 
     /**
-     * Returns a message from the language file without adding the prefix
-     *
-     * @param key     The key of the message to translate
-     * @param objects The formatting objects to use
-     * @return The formatted message
-     */
-    public String trRaw(String key, Object... objects) {
-        return messages.trRaw(key, objects);
-    }
-
-    /**
-     * Checks a target {@link CommandSender} for a given permission (excluding the permission base). Example:
-     * <p>
-     * <pre>
-     *     checkPermission(sender, "command.use", true);
-     * </pre>
-     * <p>
-     * This would check if the player had the permission <code>"{plugin name}.command.use"</code>, and if they didn't, it would send them the no-permission message from the messages config file.
+     * Checks a target {@link CommandSender} for a given permission, and optionally sends a message if they don't.
+     * <br>
+     * This will automatically prefix any permission with the name of the plugin.
      *
      * @param target      The target {@link CommandSender} to check
      * @param permission  The permission to check, excluding the permission base (which is the plugin name)

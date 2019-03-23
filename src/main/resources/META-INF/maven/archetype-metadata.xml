@@ -43,6 +43,13 @@
 				<include>**/*.yml</include>
 			</includes>
 		</fileSet>
+
+		<fileSet>
+			<directory></directory>
+			<includes>
+				<include>.gitignore</include>
+			</includes>
+		</fileSet>
 	</fileSets>
 
 </archetype-descriptor>

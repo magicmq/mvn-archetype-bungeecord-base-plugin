@@ -3,23 +3,35 @@ package ${groupId}.${artifactId}.utils;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.ConfigurationSection;
 
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author ${author}
  */
 public class MessageHandler {
-    private Hashtable<String, String> messages = new Hashtable<>();
+    private final Map<String, String> messages = new HashMap<>();
 
     private static String getBaseKey(String key) {
-        return key.substring(0, key.lastIndexOf('.'));
+        return key.lastIndexOf('.') < 0 ? "" : key.substring(0, key.lastIndexOf('.'));
     }
 
+    /**
+     * Loads all messages from the given config file.
+     *
+     * @param config The config file to load from.
+     */
     public void load(ConfigurationSection config) {
         messages.clear();
         config.getKeys(true).forEach(key -> messages.put(key, config.get(key).toString()));
     }
 
+    /**
+     * Fetches the prefix of a given key in the config.
+     *
+     * @param key The key to get the prefix for.
+     * @return The prefix for the given key.
+     */
     private String getPrefixFor(String key) {
         String baseKey = getBaseKey(key);
         String basePrefix = messages.getOrDefault(baseKey + ".prefix", messages.getOrDefault("prefix", ""));
@@ -28,11 +40,14 @@ public class MessageHandler {
         return ChatColor.translateAlternateColorCodes('&', basePrefix + addon);
     }
 
-    public String trRaw(String key, Object... objects) {
-        return ChatColor.translateAlternateColorCodes('&', String.format(messages.getOrDefault(key, key), objects));
-    }
-
+    /**
+     * Translates a message from the language file.
+     *
+     * @param key     The key of the message to translate
+     * @param objects The formatting objects to use
+     * @return The formatted message
+     */
     public String tr(String key, Object... objects) {
-        return getPrefixFor(key) + trRaw(key, objects);
+        return getPrefixFor(key) + ChatColor.translateAlternateColorCodes('&', String.format(messages.getOrDefault(key, key), objects));
     }
 }
