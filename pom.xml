@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.rayzr522</groupId>
     <artifactId>mvn-archetype-bukkit-base-plugin</artifactId>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
     <name>Base Plugin Archetype</name>
     <description>A Maven archetype for creating Bukkit plugins</description>
 
