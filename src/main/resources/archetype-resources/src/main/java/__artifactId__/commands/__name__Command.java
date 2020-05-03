@@ -6,7 +6,7 @@ import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.plugin.Command;
 
-public class ${name}Command implements Command {
+public class ${name}Command extends Command {
 
     public ${name}Command() {
         super("${artifactId}", "${artifactId}.command");
