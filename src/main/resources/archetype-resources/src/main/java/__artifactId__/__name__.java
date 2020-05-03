@@ -1,6 +1,6 @@
 package ${groupId}.${artifactId};
 
-import ${groupId}.${artifactId}.command.${name}Command;
+import ${groupId}.${artifactId}.commands.${name}Command;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
@@ -17,6 +17,8 @@ import java.util.logging.Level;
 public class ${name} extends Plugin {
 
     private static ${name} instance;
+
+    private Configuration config;
 
     @Override
     public void onEnable() {
@@ -47,8 +49,8 @@ public class ${name} extends Plugin {
 
     }
 
-    public void reload() {
-        reloadConfig();
+    public Configuration getConfig() {
+        return config;
     }
 
     public static ${name} get() {
