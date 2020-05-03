@@ -14,11 +14,7 @@ public class ${name}Command extends Command {
 
     @Override
     public void execute(CommandSender sender, String[] args) {
-        if (sender.hasPermission("${artifactId}.command")) {
 
-        } else {
-            sender.sendMessage(getErrorMessage("Insufficient permissions!"));
-        }
     }
 
     private TextComponent getErrorMessage(String message) {
