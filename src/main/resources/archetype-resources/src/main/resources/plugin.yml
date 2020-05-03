@@ -1,9 +1,8 @@
 name: ${project.name}
-description: ${project.description}
+id: ${artifactId}
 version: ${project.version}
 author: ${author}
 main: ${groupId}.${artifactId}.${name}
-
 commands:
   ${artifactId}:
     description: The main command for ${name}.

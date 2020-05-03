@@ -5,7 +5,6 @@
     <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
     <name>${name}</name>
-    <description>${description}</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,9 +19,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>${mc-version}-R0.1-SNAPSHOT</version>
+            <groupId>net.md-5</groupId>
+            <artifactId>bungeecord-api</artifactId>
+            <version>${mc-version}-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
