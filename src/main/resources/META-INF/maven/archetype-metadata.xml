@@ -13,20 +13,20 @@
 		</requiredProperty>
 
 		<requiredProperty key="groupId">
-			<defaultValue>com.yourName</defaultValue>
+			<defaultValue>dev.magicmq</defaultValue>
 		</requiredProperty>
 
         <requiredProperty key="author">
-			<defaultValue>YourName</defaultValue>
+			<defaultValue>magicmq</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="version">
-			<defaultValue>1.0.0</defaultValue>
+			<defaultValue>1.0</defaultValue>
 		</requiredProperty>
 
-        <requiredProperty key="description">
-            <defaultValue>A Bukkit plugin</defaultValue>
-        </requiredProperty>
+		<requiredProperty key="mc-version">
+			<defaultValue>1.8.8</defaultValue>
+		</requiredProperty>
 	</requiredProperties>
 
 	<fileSets>

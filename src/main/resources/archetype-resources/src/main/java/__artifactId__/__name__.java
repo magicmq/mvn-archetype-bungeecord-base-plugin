@@ -1,14 +1,7 @@
 package ${groupId}.${artifactId};
 
 import ${groupId}.${artifactId}.command.Command${name};
-import ${groupId}.${artifactId}.utils.MessageHandler;
-import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
 
 /**
  * @author ${author}
@@ -26,7 +19,7 @@ public class ${name} extends JavaPlugin {
         reloadConfig();
 
         // Set up commands
-        getCommand("${artifactId}").setExecutor(new Command${name}(this));
+        getCommand("${artifactId}").setExecutor(new ${name}Command());
     }
 
     @Override

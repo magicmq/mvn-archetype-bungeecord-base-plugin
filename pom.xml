@@ -1,24 +1,47 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>me.rayzr522</groupId>
-    <artifactId>mvn-archetype-bukkit-base-plugin</artifactId>
-    <version>1.1.2</version>
-    <name>Base Plugin Archetype</name>
-    <description>A Maven archetype for creating Bukkit plugins</description>
+    <groupId>dev.magicmq</groupId>
+    <artifactId>bukkit-plugin-archetype</artifactId>
+    <version>1.2</version>
 
-    <packaging>jar</packaging>
+    <packaging>maven-archetype</packaging>
     <build>
-        <defaultGoal>clean install</defaultGoal>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.archetype</groupId>
+                <artifactId>archetype-packaging</artifactId>
+                <version>3.1.2</version>
+            </extension>
+        </extensions>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.1.0</version>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.6</version>
+                <extensions>true</extensions>
                 <configuration>
-                    <addDefaultExcludes>false</addDefaultExcludes>
+                    <serverId>sonatype</serverId>
+                    <nexusUrl>https://repo.magicmq.dev/repository/archetypes/</nexusUrl>
                 </configuration>
             </plugin>
         </plugins>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-archetype-plugin</artifactId>
+                    <version>3.1.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>sonatype</id>
+            <url>https://repo.magicmq.dev/repository/archetypes/</url>
+        </repository>
+    </distributionManagement>
 </project>
