@@ -6,4 +6,3 @@ main: ${groupId}.${artifactId}.${name}
 commands:
   ${artifactId}:
     description: The main command for ${name}.
-    aliases: []

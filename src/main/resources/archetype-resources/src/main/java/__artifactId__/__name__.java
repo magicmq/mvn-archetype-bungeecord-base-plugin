@@ -41,7 +41,7 @@ public class ${name} extends Plugin {
             e.printStackTrace();
         }
 
-        getProxy().getPluginManager().registerCommand("${artifactId}").setExecutor(new ${name}Command());
+        getProxy().getPluginManager().registerCommand(this, new ${name}Command());
     }
 
     @Override

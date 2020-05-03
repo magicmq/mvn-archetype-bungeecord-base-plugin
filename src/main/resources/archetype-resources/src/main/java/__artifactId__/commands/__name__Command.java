@@ -8,6 +8,10 @@ import net.md_5.bungee.api.plugin.Command;
 
 public class ${name}Command implements Command {
 
+    public ${name}Command() {
+        super("${artifactId}", "${artifactId}.command");
+    }
+
     @Override
     public void execute(CommandSender sender, String[] args) {
         if (sender.hasPermission("${artifactId}.command")) {
@@ -15,7 +19,6 @@ public class ${name}Command implements Command {
         } else {
             sender.sendMessage(getErrorMessage("Insufficient permissions!"));
         }
-        return true;
     }
 
     private TextComponent getErrorMessage(String message) {
