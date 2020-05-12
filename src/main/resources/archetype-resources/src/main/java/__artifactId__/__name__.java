@@ -24,6 +24,8 @@ public class ${name} extends Plugin {
     public void onEnable() {
         instance = this;
 
+        if (!getDataFolder().exists())
+            getDataFolder().mkdir();
         File config = new File(getDataFolder(), "config.yml");
         if (!config.exists()) {
             try (InputStream in = getResourceAsStream("config.yml")) {
@@ -40,6 +42,8 @@ public class ${name} extends Plugin {
             getLogger().log(Level.SEVERE, "Error loading config!");
             e.printStackTrace();
         }
+
+        getProxy().getPluginManager().registerListener(this, new PluginListener());
 
         getProxy().getPluginManager().registerCommand(this, new ${name}Command());
     }
